@@ -60,6 +60,7 @@ export class Signup extends React.Component {
                 <button onClick={this.send} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit">
                     Create account
                 </button>
+
             </div>
         </form>
         <a className="block w-full text-center no-underline text-xl text-grey-dark hover:text-grey-darker p-8"
