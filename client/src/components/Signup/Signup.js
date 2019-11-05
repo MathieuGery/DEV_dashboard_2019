@@ -1,5 +1,4 @@
 import React from "react";
-import { Button, FormGroup, FormControl, FormLabel } from "react-bootstrap";
 import API from "../../utils/API";
 
 export class Signup extends React.Component {
@@ -28,39 +27,48 @@ export class Signup extends React.Component {
     render() {
         const { email, password, cpassword } = this.state;
         return (
-            <div className="Login">
-                <div className="bg-blue-100">Hello World!</div>
-                <form>
-                <FormGroup controlId="email" bsSize="large">
-                    <FormLabel>Email</FormLabel>
-                    <FormControl
-                        autoFocus
-                        type="email"
-                        value={email}
-                        onChange={this.handleChange}
-                    />
-                </FormGroup>
-                <FormGroup controlId="password" bsSize="large">
-                    <FormLabel>Password</FormLabel>
-                    <FormControl
-                        value={password}
-                        onChange={this.handleChange}
-                        type="password"
-                    />
-                </FormGroup>
-                <FormGroup controlId="cpassword" bsSize="large">
-                    <FormLabel>Confirm Password</FormLabel>
-                    <FormControl
-                        value={cpassword}
-                        onChange={this.handleChange}
-                        type="password"
-                    />
-                </FormGroup>
-                <Button onClick={this.send} block bsSize="large" type="submit">
-                    Inscription
-                </Button>
-                </form>
+            <div className="flex items-center h-screen w-full bg-indigo-900 bg-teal-lighter">
+            <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
+            <h1 className="block w-full text-center text-grey-darkest mb-6">Sign up</h1>
+        <form className="mb-4 md:flex md:flex-wrap md:justify-between">
+            <div className="flex flex-col mb-4 md:w-full">
+                <label className="mb-2 uppercase font-bold text-lg text-grey-darkest"
+                       htmlFor="email">Email</label>
+                <input className="border py-2 px-3 text-grey-darkest" id='email' placeholder="your.email@example.com"
+                       autoFocus
+                       type="email"
+                       value={email}
+                       onChange={this.handleChange}/>
             </div>
+            <div className="flex flex-col mb-8 md:w-full">
+                <label className="mb-4 uppercase font-bold text-lg text-grey-darkest"
+                       htmlFor="password">Password</label>
+                <input className="border py-2 px-3 text-grey-darkest" id="password"  placeholder="************"
+                       value={password}
+                       onChange={this.handleChange}
+                       type="password"/>
+            </div>
+            <div className="flex flex-col mb-8 md:w-full">
+                <label className="mb-4 uppercase font-bold text-lg text-grey-darkest"
+                       htmlFor="password">Confirm Password</label>
+                <input className="border py-2 px-3 text-grey-darkest" id="cpassword"  placeholder="************"
+                       value={cpassword}
+                       onChange={this.handleChange}
+                       type="password"/>
+            </div>
+            <div className="flex flex-col mb-4 md:w-full">
+                <button onClick={this.send} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" type="submit">
+                    Create account
+                </button>
+            </div>
+        </form>
+        <a className="block w-full text-center no-underline text-xl text-grey-dark hover:text-grey-darker p-8"
+        href="/">Already have an account? Login</a>
+        <p className="text-center text-gray-500 text-sm">
+            &copy;Made by love by Mathieu Gery
+        </p>
+    </div>
+    </div>
         );
     }
 }

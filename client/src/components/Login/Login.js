@@ -1,6 +1,4 @@
 import React from "react";
-
-import { Button} from "react-bootstrap";
 import API from "../../utils/API";
 
 export class Login extends React.Component {
@@ -32,9 +30,9 @@ export class Login extends React.Component {
     render() {
         const { email, password } = this.state;
         return (
-            <div className="flex items-center h-screen w-full bg-blue-600 bg-teal-lighter">
+            <div className="flex items-center h-screen w-full bg-indigo-900 bg-teal-lighter">
                 <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
-                    <h1 className="block w-full text-center text-grey-darkest mb-6">Signin</h1>
+                    <h1 className="block w-full text-center text-grey-darkest mb-6">Login</h1>
                     <form className="mb-4 md:flex md:flex-wrap md:justify-between">
                         <div className="flex flex-col mb-4 md:w-full">
                             <label className="mb-2 uppercase font-bold text-lg text-grey-darkest"
@@ -45,17 +43,19 @@ export class Login extends React.Component {
                                    value={email}
                                    onChange={this.handleChange}/>
                         </div>
-                        <div className="flex flex-col mb-6 md:w-full">
-                            <label className="mb-2 uppercase font-bold text-lg text-grey-darkest"
+                        <div className="flex flex-col mb-8 md:w-full">
+                            <label className="mb-4 uppercase font-bold text-lg text-grey-darkest"
                                    htmlFor="password">Password</label>
                             <input className="border py-2 px-3 text-grey-darkest" id="password"  placeholder="************"
                                    value={password}
                                    onChange={this.handleChange}
                                    type="password"/>
                         </div>
-                        <Button onClick={this.send} block bsSize="large" type="button">
+                        <div className="flex flex-col mb-4 md:w-full">
+                        <button onClick={this.send} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                             Connexion
-                        </Button>
+                        </button>
+                        </div>
                     </form>
                     <a className="block w-full text-center no-underline text-xl text-grey-dark hover:text-grey-darker p-8"
                        href="/signup">Don't have an account? Create One</a>
@@ -64,8 +64,6 @@ export class Login extends React.Component {
                     </p>
                 </div>
             </div>
-
-
         );
     }
 }
