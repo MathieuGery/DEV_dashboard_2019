@@ -29,6 +29,7 @@ export class Signup extends React.Component {
         const { email, password, cpassword } = this.state;
         return (
             <div className="Login">
+                <div className="bg-blue-100">Hello World!</div>
                 <form>
                 <FormGroup controlId="email" bsSize="large">
                     <FormLabel>Email</FormLabel>

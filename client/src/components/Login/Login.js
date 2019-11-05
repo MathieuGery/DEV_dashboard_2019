@@ -32,10 +32,10 @@ export class Login extends React.Component {
     render() {
         const { email, password } = this.state;
         return (
-            <div className="Login">
-                <form>
-                    <FormGroup controlId="email" bsSize="large">
-                        <FormLabel>Email</FormLabel>
+            <div className="w-full max-w-sm">
+                <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4">
+                    <FormGroup controlId="email">
+                        <FormLabel >Email</FormLabel>
                         <FormControl
                             autoFocus
                             type="email"
@@ -51,14 +51,12 @@ export class Login extends React.Component {
                             type="password"
                         />
                     </FormGroup>
-                    <Button onClick={this.send} block bsSize="large" type="submit">
+                    <Button className = "hover:bg-red-600" onClick={this.send} block bsSize="large" type="submit">
                         Connexion
-                    </Button>
-                    <Button onClick={this.handleClick} type="button">
-                        Créer un compte
                     </Button>
                 </form>
             </div>
+
         );
     }
 }
