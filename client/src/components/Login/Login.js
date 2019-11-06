@@ -6,7 +6,8 @@ export class Login extends React.Component {
         email: "",
         password: ""
     };
-    send = async () => {
+    send = async (e) => {
+        e.preventDefault();
         const { email, password } = this.state;
         if (!email || email.length === 0) {
             return
@@ -62,7 +63,7 @@ export class Login extends React.Component {
                     <a className="block w-full text-center no-underline text-xl text-grey-dark hover:text-grey-darker p-8"
                        href="/signup">Don't have an account? Create One</a>
                     <p className="text-center text-gray-500 text-sm">
-                        &copy;Made by love by Mathieu Gery
+                        &copy;Dashboard Epitech Mathieu
                     </p>
                 </div>
             </div>

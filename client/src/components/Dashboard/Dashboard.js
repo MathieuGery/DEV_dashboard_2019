@@ -1,6 +1,7 @@
 import React from "react";
 import { Button } from "react-bootstrap";
 import API from "../../utils/API";
+import SideBar from "./SideBar";
 
 export class Dashboard extends React.Component {
     disconnect = () => {
@@ -8,13 +9,7 @@ export class Dashboard extends React.Component {
         window.location = "/";
     };
     render() {
-        return (
-            <div className="Dashboard">
-                <h1>Dashboard</h1>
-                <Button onClick={this.disconnect} block bsSize="large" type="submit">
-                    Se déconnecter
-                </Button>
-            </div>
+        return (<SideBar/>
         );
     }
 }

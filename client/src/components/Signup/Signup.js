@@ -66,7 +66,7 @@ export class Signup extends React.Component {
         <a className="block w-full text-center no-underline text-xl text-grey-dark hover:text-grey-darker p-8"
         href="/">Already have an account? Login</a>
         <p className="text-center text-gray-500 text-sm">
-            &copy;Made by love by Mathieu Gery
+            &copy;Dashboard Epitech Mathieu
         </p>
     </div>
     </div>
