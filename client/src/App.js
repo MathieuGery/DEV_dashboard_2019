@@ -5,6 +5,7 @@ import { Login } from "./components/Login/Login.js";
 import { Signup } from "./components/Signup/Signup.js";
 import { PrivateRoute } from "./components/PrivateRoute.js";
 import { NotFound } from "./components/404NotFound/NotFound.js";
+import MyCard from "./components/Dashboard/MyCard"
 import "./App.css";
 import "./styles/tailwind.css"
 
@@ -17,6 +18,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Login} />
               <Route exact path="/signup" component={Signup} />
+              <Route exact path="/test" component={MyCard} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
               <Route exact path="*" component={NotFound} />
             </Switch>

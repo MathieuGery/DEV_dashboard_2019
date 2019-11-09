@@ -61,7 +61,7 @@ async function login(req, res) {
             });
         return res.status(200).json({
             token: findUser.getToken(),
-            text: "Authentification sucess"
+            text: "Authentication success"
         });
     } catch (error) {
         return res.status(500).json({

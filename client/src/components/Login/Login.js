@@ -1,5 +1,9 @@
 import React from "react";
 import API from "../../utils/API";
+import LoginWithGoogle from "./GoogleLogin"
+
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class Login extends React.Component {
     state = {
@@ -15,14 +19,18 @@ export class Login extends React.Component {
         if (!password || password.length === 0) {
             return;
         }
-        try {
-            const { data } = await API.login(email, password);
-            localStorage.setItem("token", data.token);
-            window.location = "/dashboard";
-        } catch (error) {
-            console.error(error);
-        }
+        await API.login(email, password)
+                .then((response) => {
+                    localStorage.setItem("token", response.token);
+                    window.location = "/dashboard";
+                })
+                .catch((error) => {
+                    toast(error.response.data.text);
+                    console.log(error.response.data.text);
+                })
     };
+
+
     handleChange = (event) => {
         this.setState({
             [event.target.id]: event.target.value
@@ -54,18 +62,20 @@ export class Login extends React.Component {
                                    type="password"/>
                         </div>
                         <div className="flex flex-col mb-4 md:w-full">
-                        <button onClick={this.send} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                        <button onClick={(e) => this.send(e)} className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                             Connexion
                         </button>
+                            <LoginWithGoogle/>
                         </div>
                     </form>
 
                     <a className="block w-full text-center no-underline text-xl text-grey-dark hover:text-grey-darker p-8"
-                       href="/signup">Don't have an account? Create One</a>
+                        href="/signup">Don't have an account? Create One</a>
                     <p className="text-center text-gray-500 text-sm">
                         &copy;Dashboard Epitech Mathieu
                     </p>
                 </div>
+                <ToastContainer />
             </div>
         );
     }

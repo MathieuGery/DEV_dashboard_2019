@@ -1,8 +1,13 @@
 import React from "react";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faChartLine } from '@fortawesome/free-solid-svg-icons'
+import {faChartLine, faUserCircle} from '@fortawesome/free-solid-svg-icons'
+import API from "../../utils/API";
 
 class SideBar extends React.Component {
+    disconnect = () => {
+        API.logout();
+        window.location = "/";
+    };
     render() {
         return (
             <nav className="flex items-center justify-between flex-wrap bg-indigo-900 p-6">
@@ -34,9 +39,11 @@ class SideBar extends React.Component {
                             Blog
                         </a>
                     </div>
-                    <div>
-                        <a href="#"
-                           className="inline-block text-3xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0">Sign Out</a>
+                    <div className="flex items-center flex-shrink-0 text-white mr-6">
+                        <div className="p-4">
+                            <FontAwesomeIcon icon={faUserCircle} className={"text-5xl text-white"}/></div>
+                        <button
+                           className="inline-block text-3xl px-4 py-2 leading-none border rounded text-white border-white hover:border-transparent hover:text-teal-500 hover:bg-white mt-4 lg:mt-0" onClick={this.disconnect}>Sign Out</button>
                     </div>
                 </div>
             </nav>

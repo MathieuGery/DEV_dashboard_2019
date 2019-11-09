@@ -18,7 +18,7 @@ export default {
             {
                 headers: headers
             }
-        );
+        )
     },
     signup: function(send) {
         return axios.post(`${burl}/user/signup`, send, { headers: headers });
