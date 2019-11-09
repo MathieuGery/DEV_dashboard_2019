@@ -1,7 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
 import SideBar from "./SideBar";
-import MyCard from "./MyCard";
+import MyCard from "./Cards/MyCard";
 
 
 export class Dashboard extends React.Component {
