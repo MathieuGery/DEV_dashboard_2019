@@ -1,5 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
+import { ToastContainer, toast } from 'react-toastify';
+import 'react-toastify/dist/ReactToastify.css';
 
 export class Signup extends React.Component {
     state = {
@@ -7,18 +9,29 @@ export class Signup extends React.Component {
         password: "",
         cpassword: ""
     };
-    send = async () => {
-        const { email, password, cpassword } = this.state;
-        if (!email || email.length === 0) return;
-        if (!password || password.length === 0 || password !== cpassword) return;
-        try {
-            const { data } = await API.signup({ email, password });
-            localStorage.setItem("token", data.token);
-            window.location = "/dashboard";
-        } catch (error) {
-            console.error(error);
+    send = async (e) => {
+        e.preventDefault();
+        const {email, password, cpassword} = this.state;
+        if (!email || email.length === 0) {
+            toast.error("Empty mail !");
+            return;
         }
+        if (!password || password.length === 0 || password !== cpassword) {
+            toast.error("Empty password or different!");
+            return;
+        }
+        await API.signup({email, password})
+            .then((response) => {
+                localStorage.setItem("token", response.token);
+                window.location = "/";
+                toast("Sucess !");
+            })
+            .catch((error) => {
+                toast.error(error.response.data.text);
+                console.log(error.response.data.text);
+            });
     };
+
     handleChange = (event) => {
         this.setState({
             [event.target.id]: event.target.value
@@ -69,6 +82,7 @@ export class Signup extends React.Component {
             &copy;Dashboard Epitech Mathieu
         </p>
     </div>
+                <ToastContainer />
     </div>
         );
     }

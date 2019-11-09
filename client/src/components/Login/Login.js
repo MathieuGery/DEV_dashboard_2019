@@ -1,7 +1,6 @@
 import React from "react";
 import API from "../../utils/API";
 import LoginWithGoogle from "./GoogleLogin"
-
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
