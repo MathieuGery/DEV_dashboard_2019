@@ -2,10 +2,26 @@ import React, {useCallback, useState} from 'react'
 import Card from './Card'
 import update from 'immutability-helper'
 
+import { makeStyles } from '@material-ui/core/styles';
+import Paper from '@material-ui/core/Paper';
+import Grid from '@material-ui/core/Grid';
+
+const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing(1),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
+}));
+
 const style = {
     width: 400,
 };
 const Container = () => {
+    const classes = useStyles();
     {
         const [cards, setCards] = useState([
             {
@@ -51,6 +67,7 @@ const Container = () => {
         );
         const renderCard = (card, index) => {
             return (
+
                 <Card
                     key={card.id}
                     index={index}
@@ -61,10 +78,15 @@ const Container = () => {
             )
         };
         return (
-            <>
-                <div style={style}>{cards.map((card, i) => renderCard(card, i))}</div>
-            </>
+                <div className={classes.root}   container
+                     direction="row"
+                     justify="center"
+                     alignItems="center">
+                        <Grid item xs={12}>
+                            {cards.map((card, i) => renderCard(card, i))}
+                    </Grid>
+                </div>
         )
     }
 };
-export default Container
+export default Container;

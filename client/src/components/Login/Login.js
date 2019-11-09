@@ -13,9 +13,11 @@ export class Login extends React.Component {
         e.preventDefault();
         const { email, password } = this.state;
         if (!email || email.length === 0) {
+            toast.error("Email can not be empty !");
             return
         }
         if (!password || password.length === 0) {
+            toast.error("Password can not be empty !");
             return;
         }
         await API.login(email, password)

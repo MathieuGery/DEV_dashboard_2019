@@ -9,6 +9,8 @@ import MyCard from "./components/Dashboard/Cards/MyCard"
 import "./App.css";
 import "./styles/tailwind.css"
 
+import CalendarGoogle from "./components/Dashboard/CalendarGoogle"
+
 class App extends Component {
   render() {
     return (
@@ -18,7 +20,7 @@ class App extends Component {
             <Switch>
               <Route exact path="/" component={Login} />
               <Route exact path="/signup" component={Signup} />
-              <Route exact path="/test" component={MyCard} />
+              <Route exact path="/test" component={CalendarGoogle} />
               <PrivateRoute path="/dashboard" component={Dashboard} />
               <Route exact path="*" component={NotFound} />
             </Switch>
