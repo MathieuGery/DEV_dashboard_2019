@@ -1,0 +1,36 @@
+version: '3.2'
+
+services:
+  react:
+    build: client
+    image: react-front-dashboard
+    ports:
+      - "8080:3000"
+    restart: on-failure
+  api:
+    build: .
+    image: api-node-dashboard
+    depends_on:
+      - mongo
+    ports:
+      - "8800:8800"
+    networks:
+      - mongo-api
+    restart: always
+  mongo:
+    image: mongo
+    container_name: 'my-mongo-container'
+    volumes:
+      - db-data:/data/db
+    ports:
+      - '27017-27019:27017-27019'
+    networks:
+      - mongo-api
+    restart: always
+
+networks:
+  mongo-api:
+    external: false
+
+volumes:
+  db-data:
