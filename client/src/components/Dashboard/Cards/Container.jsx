@@ -1,57 +1,53 @@
 import React, {useCallback, useState} from 'react'
 import Card from './Card'
 import update from 'immutability-helper'
-
+import Grid from "@material-ui/core/Grid";
 import { makeStyles } from '@material-ui/core/styles';
-import Paper from '@material-ui/core/Paper';
-import Grid from '@material-ui/core/Grid';
+import ClockDashboard from "../ClockDashboard";
 
 const useStyles = makeStyles(theme => ({
     root: {
         flexGrow: 1,
     },
     paper: {
-        padding: theme.spacing(1),
+        padding: theme.spacing(2),
         textAlign: 'center',
         color: theme.palette.text.secondary,
     },
 }));
 
-const style = {
-    width: 400,
-};
 const Container = () => {
     const classes = useStyles();
     {
         const [cards, setCards] = useState([
             {
                 id: 1,
-                text: 'biiiite',
+                content: <ClockDashboard/>
             },
             {
                 id: 2,
-                text: 'Make it generic enough',
+                content: 'Make it generic enough',
             },
             {
                 id: 3,
-                text: 'Write README',
+                content: 'Write README',
             },
             {
                 id: 4,
-                text: 'Create some examples',
+                content: 'Create some examples',
             },
             {
                 id: 5,
-                text:
+                content:
                     'Spam in Twitter and IRC to promote it (note that this element is taller than the others)',
             },
             {
                 id: 6,
-                text: '???',
+                content: '???',
             },
             {
                 id: 7,
-                text: 'PROFIT',
+                content: 'PROFIT',
             },
         ]);
         const moveCard = useCallback(
@@ -67,25 +63,23 @@ const Container = () => {
         );
         const renderCard = (card, index) => {
             return (
-
                 <Card
                     key={card.id}
                     index={index}
                     id={card.id}
-                    text={card.text}
+                    content={card.content}
                     moveCard={moveCard}
                 />
             )
         };
         return (
-                <div className={classes.root}   container
-                     direction="row"
-                     justify="center"
-                     alignItems="center">
-                        <Grid item xs={12}>
+            <div className={classes.root}>
+                <Grid container spacing={3}>
+                    <Grid item xs={6}>
                             {cards.map((card, i) => renderCard(card, i))}
                     </Grid>
-                </div>
+                </Grid>
+            </div>
         )
     }
 };

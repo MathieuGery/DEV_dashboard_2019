@@ -9,7 +9,20 @@ const style = {
 
 };
 
-const Card = ({id, text, index, moveCard}) => {
+const useStyles = makeStyles(theme => ({
+    root: {
+        flexGrow: 1,
+    },
+    paper: {
+        padding: theme.spacing(2),
+        textAlign: 'center',
+        color: theme.palette.text.secondary,
+    },
+}));
+
+
+const Card = ({id, content, index, moveCard}) => {
+    const classes = useStyles();
     const ref = useRef(null);
     const [, drop] = useDrop({
         accept: ItemTypes.CARD,
@@ -61,7 +74,7 @@ const Card = ({id, text, index, moveCard}) => {
     const opacity = isDragging ? 0 : 1;
     drag(drop(ref));
     return (
-            <Paper className={"text-6xl w-full bg-white rounded shadow-lg p-8 m-4  md:mx-auto"} ref={ref} style={{...style, opacity}}>{text} </Paper>
+            <Paper className={"text-6xl rounded shadow-lg p-8 m-4 classes.paper"} ref={ref} style={{...style, opacity}}>{content} </Paper>
 
     )
 };

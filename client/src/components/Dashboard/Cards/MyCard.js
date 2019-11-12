@@ -7,7 +7,6 @@ import HTML5Backend from 'react-dnd-html5-backend'
 class MyCard extends React.Component {
     render() {
         return (
-
             <div>
                 <DndProvider backend={HTML5Backend}>
                     <Container />

@@ -2,6 +2,9 @@ import React from "react";
 import API from "../../utils/API";
 import { ToastContainer, toast } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
+import Cookies from 'js-cookie'
+
+import SignupLogo from '../../static/assets/signup-logo.png';
 
 export class Signup extends React.Component {
     state = {
@@ -22,7 +25,7 @@ export class Signup extends React.Component {
         }
         await API.signup({email, password})
             .then((response) => {
-                localStorage.setItem("token", response.token);
+                Cookies.set("token", response.token);
                 window.location = "/";
                 toast("Sucess !");
             })
@@ -42,6 +45,7 @@ export class Signup extends React.Component {
         return (
             <div className="flex items-center h-screen w-full bg-indigo-900 bg-teal-lighter">
             <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
+                <img src={SignupLogo} alt='Logo'/>
             <h1 className="block w-full text-center text-grey-darkest mb-6">Sign up</h1>
         <form className="mb-4 md:flex md:flex-wrap md:justify-between">
             <div className="flex flex-col mb-4 md:w-full">
@@ -82,7 +86,6 @@ export class Signup extends React.Component {
             &copy;Dashboard Epitech Mathieu
         </p>
     </div>
-                <ToastContainer />
     </div>
         );
     }

@@ -5,12 +5,12 @@ import { Login } from "./components/Login/Login.js";
 import { Signup } from "./components/Signup/Signup.js";
 import { PrivateRoute } from "./components/PrivateRoute.js";
 import { NotFound } from "./components/404NotFound/NotFound.js";
-import MyCard from "./components/Dashboard/Cards/MyCard"
 import "./App.css";
 import "./styles/tailwind.css"
-
 import CalendarGoogle from "./components/Dashboard/CalendarGoogle"
+import { toast } from 'react-toastify';
 
+toast.configure();
 class App extends Component {
   render() {
     return (

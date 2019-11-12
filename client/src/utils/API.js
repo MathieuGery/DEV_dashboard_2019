@@ -1,4 +1,5 @@
 import axios from "axios";
+import Cookies from 'js-cookie'
 
 const headers = {
     "Content-Type": "application/json"
@@ -25,9 +26,9 @@ export default {
     },
 
     isAuth: function() {
-        return localStorage.getItem("token") !== null;
+        return Cookies.get("token") !== undefined;
     },
     logout: function() {
-        localStorage.clear();
+        Cookies.remove("token");
     }
 };
