@@ -3,7 +3,7 @@ import Card from './Card'
 import update from 'immutability-helper'
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from '@material-ui/core/styles';
-import ClockDashboard from "../ClockDashboard";
+import ClockDashboard from "../services/ClockDashboard";
 
 const useStyles = makeStyles(theme => ({
     root: {
