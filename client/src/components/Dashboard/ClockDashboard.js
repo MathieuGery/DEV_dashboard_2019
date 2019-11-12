@@ -13,9 +13,9 @@ export default class ClockDashboard extends Component {
     }
     render() {
         return (
-            <div>
-                <p>Current time:</p>
-                <Clock
+            <div className={""}>
+                <p className={"text-2xl underline py-5 flex m-auto"}>Current time:</p>
+                <Clock className={"m-auto flex"}
                     value={this.state.date}
                 />
             </div>

@@ -4,6 +4,7 @@ import update from 'immutability-helper'
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from '@material-ui/core/styles';
 import ClockDashboard from "../ClockDashboard";
+import {Paper} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -75,10 +76,11 @@ const Container = () => {
         return (
             <div className={classes.root}>
                 <Grid container spacing={3}>
-                    <Grid item xs={6}>
-                            {cards.map((card, i) => renderCard(card, i))}
-                    </Grid>
+
+                      {cards.map((card, i) => renderCard(card, i))}
+
                 </Grid>
+
             </div>
         )
     }

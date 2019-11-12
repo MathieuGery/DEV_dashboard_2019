@@ -4,6 +4,7 @@ import ItemTypes from './ItemTypes'
 
 import { makeStyles } from '@material-ui/core/styles';
 import Paper from "@material-ui/core/Paper";
+import Grid from "@material-ui/core/Grid";
 
 const style = {
 
@@ -74,7 +75,9 @@ const Card = ({id, content, index, moveCard}) => {
     const opacity = isDragging ? 0 : 1;
     drag(drop(ref));
     return (
+        <Grid item xs={3}>
             <Paper className={"text-6xl rounded shadow-lg p-8 m-4 classes.paper"} ref={ref} style={{...style, opacity}}>{content} </Paper>
+        </Grid>
 
     )
 };

@@ -30,7 +30,7 @@ export class Login extends React.Component {
                 })
                 .catch((error) => {
                     toast(error.response.data.text);
-                    console.log(error.response.data.text);
+                    console.error(error.response.data.text);
                 })
     };
 
