@@ -5,7 +5,7 @@ const bodyParser = require("body-parser");
 
 //Connexion à la base de donnée
 mongoose
-    .connect("mongodb://@localhost:27017/db_test", { useNewUrlParser: true, useUnifiedTopology: true })
+    .connect("mongodb://@localhost:27017/db_test", {useNewUrlParser: true, useUnifiedTopology: true})
     .then(() => {
         console.log("Connected to mongoDB");
     })
@@ -28,7 +28,7 @@ app.use(urlencodedParser);
 app.use(bodyParser.json());
 
 //Définition des CORS
-app.use(function(req, res, next) {
+app.use(function (req, res, next) {
     res.setHeader(
         "Access-Control-Allow-Headers",
         "X-Requested-With,content-type"

@@ -2,7 +2,7 @@ const User = require("../../schema/schemaUser.js");
 const passwordHash = require("password-hash");
 
 async function signup(req, res) {
-    const { password, email } = req.body;
+    const {password, email} = req.body;
     if (!email || !password) {
         //Le cas où l'email ou bien le password ne serait pas soumit ou nul
         return res.status(400).json({
@@ -25,23 +25,23 @@ async function signup(req, res) {
             });
         }
     } catch (error) {
-        return res.status(500).json({ error });
+        return res.status(500).json({error});
     }
     try {
         // Sauvegarde de l'utilisateur en base
         const userData = new User(user);
         const userObject = await userData.save();
         return res.status(200).json({
-            text: "Sucess",
+            text: "Success",
             token: userObject.getToken()
         });
     } catch (error) {
-        return res.status(500).json({ error });
+        return res.status(500).json({error});
     }
 }
 
 async function login(req, res) {
-    const { password, email } = req.query;
+    const {password, email} = req.query;
     if (!email || !password) {
         //Le cas où l'email ou bien le password ne serait pas soumit ou nul
         return res.status(400).json({
@@ -50,7 +50,7 @@ async function login(req, res) {
     }
     try {
         // On check si l'utilisateur existe en base
-        const findUser = await User.findOne({ email });
+        const findUser = await User.findOne({email});
         if (!findUser)
             return res.status(401).json({
                 text: "User does not exist"

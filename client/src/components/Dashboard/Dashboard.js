@@ -9,6 +9,7 @@ export class Dashboard extends React.Component {
         API.logout();
         window.location = "/";
     };
+
     render() {
         return (
             <div>

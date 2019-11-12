@@ -17,14 +17,14 @@ const userSchema = mongoose.Schema(
             required: true
         }
     },
-    { timestamps: { createdAt: "created_at" } }
+    {timestamps: {createdAt: "created_at"}}
 );
 
 userSchema.methods = {
-    authenticate: function(password) {
+    authenticate: function (password) {
         return passwordHash.verify(password, this.password);
     },
-    getToken: function() {
+    getToken: function () {
         return jwt.encode(this, config.secret);
     }
 };

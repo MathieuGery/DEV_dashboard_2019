@@ -7,7 +7,7 @@ const headers = {
 const burl = "http://localhost:8800";
 
 export default {
-    login: function(email, password) {
+    login: function (email, password) {
         return axios.post(
             `${burl}/user/login`, null,
             {
@@ -21,14 +21,14 @@ export default {
             }
         )
     },
-    signup: function(send) {
-        return axios.post(`${burl}/user/signup`, send, { headers: headers });
+    signup: function (send) {
+        return axios.post(`${burl}/user/signup`, send, {headers: headers});
     },
 
-    isAuth: function() {
+    isAuth: function () {
         return Cookies.get("token") !== undefined;
     },
-    logout: function() {
+    logout: function () {
         Cookies.remove("token");
     }
 };

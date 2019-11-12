@@ -2,5 +2,7 @@
   "clientId": "309004299221-7a9nsovn631cshtohvbvf0m1qhcalls3.apps.googleusercontent.com",
   "apiKey": "Nbl-2-VYPFtIysZnY2oBHiFd",
   "scope": "https://www.googleapis.com/auth/calendar",
-  "discoveryDocs": ["https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"]
+  "discoveryDocs": [
+    "https://www.googleapis.com/discovery/v1/apis/calendar/v3/rest"
+  ]
 }

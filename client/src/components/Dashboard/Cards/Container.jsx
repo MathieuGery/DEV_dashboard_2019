@@ -2,9 +2,8 @@ import React, {useCallback, useState} from 'react'
 import Card from './Card'
 import update from 'immutability-helper'
 import Grid from "@material-ui/core/Grid";
-import { makeStyles } from '@material-ui/core/styles';
+import {makeStyles} from '@material-ui/core/styles';
 import ClockDashboard from "../ClockDashboard";
-import {Paper} from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -16,7 +15,6 @@ const useStyles = makeStyles(theme => ({
         color: theme.palette.text.secondary,
     },
 }));
-
 const Container = () => {
     const classes = useStyles();
     {
@@ -51,6 +49,8 @@ const Container = () => {
                 content: 'PROFIT',
             },
         ]);
+
+
         const moveCard = useCallback(
             (dragIndex, hoverIndex) => {
                 const dragCard = cards[dragIndex];
@@ -76,8 +76,11 @@ const Container = () => {
         return (
             <div className={classes.root}>
                 <Grid container spacing={3}>
-
-                      {cards.map((card, i) => renderCard(card, i))}
+                    <button onClick={() => setCards(cards.concat({id: 8, content: 'zizi'}))}
+                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                        Connexion
+                    </button>
+                    {cards.map((card, i) => renderCard(card, i))}
 
                 </Grid>
 

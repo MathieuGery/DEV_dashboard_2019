@@ -1,29 +1,12 @@
 import React, {useRef} from 'react'
 import {useDrag, useDrop} from 'react-dnd'
 import ItemTypes from './ItemTypes'
-
-import { makeStyles } from '@material-ui/core/styles';
 import Paper from "@material-ui/core/Paper";
 import Grid from "@material-ui/core/Grid";
 
-const style = {
-
-};
-
-const useStyles = makeStyles(theme => ({
-    root: {
-        flexGrow: 1,
-    },
-    paper: {
-        padding: theme.spacing(2),
-        textAlign: 'center',
-        color: theme.palette.text.secondary,
-    },
-}));
-
+const style = {};
 
 const Card = ({id, content, index, moveCard}) => {
-    const classes = useStyles();
     const ref = useRef(null);
     const [, drop] = useDrop({
         accept: ItemTypes.CARD,
@@ -76,7 +59,8 @@ const Card = ({id, content, index, moveCard}) => {
     drag(drop(ref));
     return (
         <Grid item xs={3}>
-            <Paper className={"text-6xl rounded shadow-lg p-8 m-4 classes.paper"} ref={ref} style={{...style, opacity}}>{content} </Paper>
+            <Paper className={"text-6xl rounded shadow-lg p-8 m-4 classes.paper"} ref={ref}
+                   style={{...style, opacity}}>{content} </Paper>
         </Grid>
 
     )
