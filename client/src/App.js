@@ -1,8 +1,10 @@
 import React, {Component} from "react";
 import {BrowserRouter, Route, Switch} from "react-router-dom";
+
 import {Dashboard} from "./components/Dashboard/Dashboard.js";
 import {Login} from "./components/Login/Login.js";
 import {Signup} from "./components/Signup/Signup.js";
+import {About} from "./components/about";
 import {PrivateRoute} from "./components/PrivateRoute.js";
 import {NotFound} from "./components/404NotFound/NotFound.js";
 import "./App.css";
@@ -19,7 +21,8 @@ class App extends Component {
                     <div className="App-content">
                         <Switch>
                             <Route exact path="/" component={Login}/>
-                            <Route exact path="/signup" component={Signup}/>    
+                            <Route exact path="/signup" component={Signup}/>
+                            <Route exact path="/about.json" component={About}/>
                             <PrivateRoute path="/dashboard" component={Dashboard}/>
                             <Route exact path="*" component={NotFound}/>
                         </Switch>

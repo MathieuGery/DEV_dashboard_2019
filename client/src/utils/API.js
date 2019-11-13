@@ -30,5 +30,8 @@ export default {
     },
     logout: function () {
         Cookies.remove("token");
+    },
+    about: function () {
+        return axios.get(`${burl}/api/about.json`, null);
     }
 };
