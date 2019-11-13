@@ -76,11 +76,13 @@ const Container = () => {
         return (
             <div className={classes.root}>
                 <Grid container spacing={3}>
-                    <button onClick={() => setCards(cards.concat({id: 8, content: 'zizi'}))}
-                            className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
-                        Connexion
-                    </button>
                     {cards.map((card, i) => renderCard(card, i))}
+                    {
+                        /*<button onClick={() => setCards(cards.concat({id: 8, content: 'zizi'}))}
+                                className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                            Connexion
+                        </button>*/
+                    }
 
                 </Grid>
 

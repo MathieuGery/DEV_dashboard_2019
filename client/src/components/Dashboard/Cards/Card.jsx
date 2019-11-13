@@ -59,8 +59,8 @@ const Card = ({id, content, index, moveCard}) => {
     drag(drop(ref));
     return (
         <Grid item xs={3}>
-            <Paper className={"text-6xl rounded shadow-lg p-8 m-4 classes.paper"} ref={ref}
-                   style={{...style, opacity}}>{content} </Paper>
+            <Paper className={"text-4xl rounded p-8 m-4 overflow-auto MuiPaper-elevation5"} ref={ref}
+                   style={{...style, opacity, height: 400}}>{content} </Paper>
         </Grid>
 
     )
