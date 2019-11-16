@@ -4,6 +4,8 @@ import update from 'immutability-helper'
 import Grid from "@material-ui/core/Grid";
 import {makeStyles} from '@material-ui/core/styles';
 import ClockDashboard from "../services/ClockDashboard";
+import WeatherDashboard from "../services/weather/weather";
+import AddCardComponent from "./addCardComponent";
 
 const useStyles = makeStyles(theme => ({
     root: {
@@ -18,37 +20,26 @@ const useStyles = makeStyles(theme => ({
 const Container = () => {
     const classes = useStyles();
     {
+        let id;
         const [cards, setCards] = useState([
-            {
-                id: 1,
-                content: <ClockDashboard/>
-            },
-            {
-                id: 2,
-                content: 'Make it generic enough',
-            },
-            {
-                id: 3,
-                content: 'Write README',
-            },
-            {
-                id: 4,
-                content: 'Create some examples',
-            },
-            {
-                id: 5,
-                content:
-                    'Spam in Twitter and IRC to promote it (note that this element is taller than the others)',
-            },
-            {
-                id: 6,
-                content: '???',
-            },
-            {
-                id: 7,
-                content: 'PROFIT',
-            },
-        ]);
+                {
+                    id: 1,
+                    content: <ClockDashboard/>
+                },
+                {
+                    id: 2,
+                    content: <WeatherDashboard city={"lille"}/>,
+                },
+                {
+                    id: 3,
+                    content: 'Write README',
+                },
+                {
+                    id: 4,
+                    content: <AddCardComponent action={() => setCards(cards.concat({id: id, content: 'zizi'}), id++)}/>
+                },
+            ],
+            id);
 
 
         const moveCard = useCallback(

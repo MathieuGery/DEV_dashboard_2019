@@ -27,7 +27,7 @@ async function weather(req, res) {
         });
     }
     superagent.get(`${burl}`)
-        .query({ q: q, appid: appid_weather })
+        .query({ q: q, appid: appid_weather, units: "metric" })
         .end((err, resp) => {
             if (err) { return res.status(200).json(resp.body); }
             console.log(resp.body);

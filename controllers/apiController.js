@@ -1,8 +1,9 @@
 const about = require('./about/about');
 const api = require('./services/api');
+const auth = require('../middlewares/authorization');
 
 module.exports = function (app) {
     app.get('/about.json', about.about);
     app.get('/rss', api.rss);
-    app.post('/weather', api.weather);
+    app.post('/weather', auth(), api.weather);
 };
