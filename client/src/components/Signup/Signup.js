@@ -2,7 +2,6 @@ import React from "react";
 import API from "../../utils/API";
 import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
-import Cookies from 'js-cookie'
 
 import SignupLogo from '../../static/assets/signup-logo.png';
 
@@ -25,12 +24,11 @@ export class Signup extends React.Component {
         }
         await API.signup({email, password})
             .then((response) => {
-                Cookies.set("token", response.token);
-                window.location = "/";
                 toast("Sucess !");
+                window.location = "/";
             })
             .catch((error) => {
-                toast.error(error.response.data.text);
+                toast.error(error.response.data.message);
                 console.log(error.response);
             });
     };
@@ -44,7 +42,8 @@ export class Signup extends React.Component {
     render() {
         const {email, password, cpassword} = this.state;
         return (
-            <div className="flex items-center h-screen w-full bg-teal-lighter" style={{background: 'linear-gradient(to right, #6441a5, #2a0845)'}}>
+            <div className="flex items-center h-screen w-full bg-teal-lighter"
+                 style={{background: 'linear-gradient(to right, #6441a5, #2a0845)'}}>
                 <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
                     <img src={SignupLogo} alt='Logo'/>
                     <h1 className="block w-full text-center text-grey-darkest mb-6">Sign up</h1>

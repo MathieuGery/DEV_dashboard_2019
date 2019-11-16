@@ -1,24 +1,24 @@
 import React from "react";
 import API from "../utils/API";
-import {toast} from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.css';
 
 export class About extends React.Component {
+    state = {
+        data: "",
+    };
+
     constructor(props) {
         super(props);
         this.send();
     }
 
-    state = {
-        data: "",
-    };
     send = async (e) => {
         console.log("biteeee");
         await API.about()
             .then((response) => {
-               this.setState({
-                   data: response.data,
-               });
+                this.setState({
+                    data: response.data,
+                });
             })
             .catch((error) => {
                 console.error(error);

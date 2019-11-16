@@ -27,14 +27,14 @@ app.use(errorHandler.handleNotFound)
 app.use(errorHandler.handleError)
 
 exports.start = () => {
-  app.listen(config.port, (err) => {
-    if (err) {
-      console.log(`Error : ${err}`)
-      process.exit(-1)
-    }
+    app.listen(config.port, (err) => {
+        if (err) {
+            console.log(`Error : ${err}`)
+            process.exit(-1)
+        }
 
-    console.log(`${config.app} is running on ${config.port}`)
-  })
+        console.log(`${config.app} is running on ${config.port}`)
+    })
 }
 
 exports.app = app

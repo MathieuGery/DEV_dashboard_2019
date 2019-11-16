@@ -16,7 +16,8 @@ class SideBar extends React.Component {
             <nav className="flex items-center justify-between flex-wrap bg-indigo-900 p-6">
                 <div className="flex items-center flex-shrink-0 text-white mr-6">
                     <FontAwesomeIcon icon={faChartLine} className={"text-6xl"}/>
-                    <span className="font-semibold text-3xl tracking-tight p-4 tracking-widest uppercase">Dashboard</span>
+                    <span
+                        className="font-semibold text-3xl tracking-tight p-4 tracking-widest uppercase">Dashboard</span>
                 </div>
                 <div className="block lg:hidden">
                     <button

@@ -25,13 +25,11 @@ export class Login extends React.Component {
         }
         await API.login(email, password)
             .then((response) => {
-                console.log(response.data.token)
                 Cookies.set("token", response.data.token);
                 window.location = "/dashboard";
             })
             .catch((error) => {
-                toast(error.response.data.text);
-                console.error(error.response.data.text);
+                toast.error(error.response.data.message);
             })
     };
 
@@ -45,7 +43,8 @@ export class Login extends React.Component {
     render() {
         const {email, password} = this.state;
         return (
-            <div className="flex items-center h-screen w-full bg-teal-lighter" style={{background: 'linear-gradient(to right, #6441a5, #2a0845)'}}>
+            <div className="flex items-center h-screen w-full bg-teal-lighter"
+                 style={{background: 'linear-gradient(to right, #6441a5, #2a0845)'}}>
                 <div className="w-full bg-white rounded shadow-lg p-8 m-4 md:max-w-sm md:mx-auto">
                     <img src={LogoLogin} alt='Logo'/>
                     <h1 className="block w-full text-center text-grey-darkest mb-6">Login</h1>
@@ -71,7 +70,7 @@ export class Login extends React.Component {
                         </div>
                         <div className="flex flex-col mb-4 md:w-full">
                             <button onClick={(e) => this.send(e)}
-                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
+                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >
                                 Connexion
                             </button>
                             <LoginWithGoogle/>
