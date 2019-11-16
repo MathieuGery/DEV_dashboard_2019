@@ -1,5 +1,5 @@
 const about = require('./about/about');
-const api = require('./services/api');
+const api = require('../server/services/api');
 const auth = require('../middlewares/authorization');
 
 module.exports = function (app) {

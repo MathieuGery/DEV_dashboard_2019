@@ -5,6 +5,10 @@ const jwt = require('jsonwebtoken')
 const config = require('../config')
 const httpStatus = require('http-status')
 const uuidv1 = require('uuid/v1')
+const superagent = require('superagent');
+
+const burl = "api.openweathermap.org/data/2.5/weather";
+const appid_weather = "5395bcad51f4b37afe5b814977728a96";
 
 exports.register = async (req, res, next) => {
   console.log("__________DEBUG__________")
@@ -43,4 +47,21 @@ exports.confirm = async (req, res, next) => {
   } catch (error) {
     next(error)
   }
+}
+
+exports.weather = async function weather(req, res) {
+  const {q} = req.query;
+  console.log(q, appid_weather);
+  if (!q || !appid_weather) {
+    return res.status(400).json({
+      text: "Invalid request city can not be null!"
+    });
+  }
+  superagent.get(`${burl}`)
+      .query({ q: q, appid: appid_weather, units: "metric" })
+      .end((err, resp) => {
+        if (err) { return res.status(200).json(resp.body); }
+        console.log(resp.body);
+        return res.status(200).json(resp.body);
+      });
 }

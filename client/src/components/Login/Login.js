@@ -25,7 +25,8 @@ export class Login extends React.Component {
         }
         await API.login(email, password)
             .then((response) => {
-                Cookies.set("token", response.token);
+                console.log(response.data.token)
+                Cookies.set("token", response.data.token);
                 window.location = "/dashboard";
             })
             .catch((error) => {

@@ -12,10 +12,8 @@ router.post('/login', authController.login) // login
 router.get('/confirm', authController.confirm)
 
 // Authentication example
-router.get('/secret1', auth(), (req, res) => {
-  // example route for auth
-  res.json({ message: 'Anyone can access(only authorized)' })
-})
+router.post('/weather', auth(), authController.weather);
+
 router.get('/secret2', auth(['admin']), (req, res) => {
   // example route for auth
   res.json({ message: 'Only admin can access' })

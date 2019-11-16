@@ -31,16 +31,6 @@ export default {
         return axios.get(`${burl}/api/about.json`, null);
     },
     weather: function (q) {
-        return axios.post(
-            `${burl}/api/weather`, null,
-            {
-                params: {
-                    q,
-                }
-            },
-            {
-                headers: headers
-            }
-        )
+        return axios.post(`${burl}/api/auth/weather?q=lille`, {query: {q}} , {headers:  {'Authorization': 'Bearer ' + Cookies.get('token')}});
     }
 };
