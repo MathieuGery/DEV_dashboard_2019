@@ -2,27 +2,23 @@ import axios from "axios";
 import Cookies from 'js-cookie'
 
 const headers = {
-    "Content-Type": "application/json"
+    "content-type": "application/json"
 };
-const burl = "http://localhost:8800";
+const burl = "http://localhost:5000";
 
 export default {
     login: function (email, password) {
         return axios.post(
-            `${burl}/user/login`, null,
-            {
-                params: {
-                    email,
-                    password
-                }
-            },
+            `${burl}/api/auth/login`, {'email': email, 'password': password},
             {
                 headers: headers
             }
         )
     },
+
     signup: function (send) {
-        return axios.post(`${burl}/user/signup`, send, {headers: headers});
+        console.log("SEND", send.email)
+        return axios.post(`${burl}/api/auth/register`, {'email': send.email, 'password': send.password} , {headers: {'Content-Type': 'application/json'}});
     },
 
     isAuth: function () {

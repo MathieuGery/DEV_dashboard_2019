@@ -7,9 +7,11 @@ const httpStatus = require('http-status')
 const uuidv1 = require('uuid/v1')
 
 exports.register = async (req, res, next) => {
+  console.log("__________DEBUG__________")
   try {
     const activationKey = uuidv1()
     const body = req.body
+    console.log(req.body);
     body.activationKey = activationKey
     const user = new User(body)
     const savedUser = await user.save()

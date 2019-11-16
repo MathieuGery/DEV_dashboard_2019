@@ -31,7 +31,7 @@ export class Signup extends React.Component {
             })
             .catch((error) => {
                 toast.error(error.response.data.text);
-                console.log(error.response.data.text);
+                console.log(error.response);
             });
     };
 
