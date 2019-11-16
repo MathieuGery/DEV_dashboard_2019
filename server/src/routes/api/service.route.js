@@ -6,7 +6,9 @@ const weatherController = require('../../controllers/weather.controller')
 const auth = require('../../middlewares/authorization')
 
 // Authentication example
-router.post('/weather', auth(), weatherController.weather);
+router.get('/weather', auth(), weatherController.weather);
+router.get('/weather/city', auth(), weatherController.weather_get_city);
+router.post('/weather/city', auth(), weatherController.weather_post_city);
 
 router.get('/secret2', auth(['admin']), (req, res) => {
     // example route for auth

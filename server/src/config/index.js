@@ -1,4 +1,4 @@
-require('dotenv').config() // load .env file
+require('dotenv').config(); // load .env file
 
 module.exports = {
     port: 5000,
@@ -15,4 +15,4 @@ module.exports = {
         email: process.env.TRANSPORTER_EMAIL,
         password: process.env.TRANSPORTER_PASSWORD
     }
-}
+};
