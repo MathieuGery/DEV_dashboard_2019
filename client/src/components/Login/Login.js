@@ -70,7 +70,7 @@ export class Login extends React.Component {
                         </div>
                         <div className="flex flex-col mb-4 md:w-full">
                             <button onClick={(e) => this.send(e)}
-                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full" >
+                                    className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full">
                                 Connexion
                             </button>
                             <LoginWithGoogle/>

@@ -35,5 +35,12 @@ export default {
     },
     weather: function (q) {
         return axios.get(`${burl}/api/services/weather/`, {headers: {'Authorization': 'Bearer ' + Cookies.get('token')}});
+    },
+    weather_city: function (q) {
+        console.log(q)
+        return axios.post(`${burl}/api/services/weather/city`, null, {
+            params: {'q': q},
+            headers: {'Authorization': 'Bearer ' + Cookies.get('token')}
+        });
     }
 };

@@ -1,8 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
 import SideBar from "./SideBar";
-import MyCard from "./Cards/MyCard";
-
+import TestCards from './Cards/TestCards';
 
 export class Dashboard extends React.Component {
     disconnect = () => {
@@ -15,7 +14,7 @@ export class Dashboard extends React.Component {
             <div>
                 <SideBar/>
                 <div className={"h-screen bg-indigo-100 px-8 py-8"}>
-                    <MyCard/>
+                    <TestCards/>
                 </div>
             </div>
         );

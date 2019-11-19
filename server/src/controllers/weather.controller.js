@@ -22,7 +22,7 @@ exports.weather_post_city = async function weather_post_city(req, res) {
     try {
         var user = req.user;
         user.weather_city = q;
-        user.save(function(err){
+        user.save(function (err) {
 
 
         })
@@ -44,7 +44,7 @@ exports.weather = async function weather(req, res) {
         .query({q: req.user.weather_city, appid: appid_weather, units: "metric"})
         .end((err, resp) => {
             if (err) {
-                return res.status(200).json(resp.body);
+                return res.status(400).json(resp.body);
             }
             console.log(resp.body);
             return res.status(200).json(resp.body);

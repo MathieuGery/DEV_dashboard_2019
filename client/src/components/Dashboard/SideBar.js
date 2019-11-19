@@ -3,8 +3,6 @@ import {FontAwesomeIcon} from '@fortawesome/react-fontawesome'
 import {faChartLine, faUserCircle} from '@fortawesome/free-solid-svg-icons'
 import API from "../../utils/API";
 
-import CreateWidgetModal from "./Modals";
-
 class SideBar extends React.Component {
     disconnect = () => {
         API.logout();
@@ -30,7 +28,6 @@ class SideBar extends React.Component {
                 </div>
                 <div className="w-full block flex-grow lg:flex lg:items-center lg:w-auto">
                     <div className="text-sm lg:flex-grow">
-                        <CreateWidgetModal/>
                     </div>
                     <div className="flex items-center flex-shrink-0 text-white mr-6">
                         <div className="p-4">

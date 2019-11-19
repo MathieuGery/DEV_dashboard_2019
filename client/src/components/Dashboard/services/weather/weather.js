@@ -1,5 +1,6 @@
 import React, {Component} from 'react';
 import API from "../../../../utils/API";
+import AddWidgetModal from '../../Modals';
 
 export default class Weather extends Component {
 
@@ -12,6 +13,18 @@ export default class Weather extends Component {
         super(props);
         this.send();
     }
+
+    change_city = async (e) => {
+        console.log("eeeeeeee", e, this.props.city)
+        await API.weather_city(e)
+            .then((response) => {
+                console.log(response);
+            })
+            .catch((error) => {
+                console.error(error);
+            });
+        this.send();
+    };
 
     send = async (e) => {
         await API.weather(this.props.city)
@@ -30,13 +43,10 @@ export default class Weather extends Component {
 
     render() {
         return (
-            <div className={""}>
-                <div className={"flex justify-between"}>
+            <div className="max-w-2xl rounded overflow-hidden shadow-lg p-8">
+                <div className={"flex justify-between p-8 bg-blue-400"}>
                     <span className={"text-2xl underline py-5"}>Weather</span>
-                    <button onClick={(e) => this.edit(e)}
-                            className="text-xl">
-                        Settings
-                    </button>
+                    <AddWidgetModal data={this.props.city} fnct={this.change_city}/>
                 </div>
                 <div className={"underline uppercase  tracking-wider p-8 "}>{(this.state.data.name)}</div>
                 <img className={"md:mx-auto rounded shadow-lg bg-blue-300 m-8"}
