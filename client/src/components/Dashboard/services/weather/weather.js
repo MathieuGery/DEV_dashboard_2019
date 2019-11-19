@@ -1,6 +1,7 @@
 import React, {Component} from 'react';
 import API from "../../../../utils/API";
 import AddWidgetModal from '../../Modals';
+import {toast} from "react-toastify";
 
 export default class Weather extends Component {
 
@@ -37,7 +38,7 @@ export default class Weather extends Component {
                 })
             })
             .catch((error) => {
-                console.error(error);
+                toast.error("City doesn't exist!");
             })
     };
 
