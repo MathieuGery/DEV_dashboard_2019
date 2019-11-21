@@ -9,7 +9,7 @@ export default class AddWidgetModal extends Component {
         this.state = {
             visible: false,
             data: '',
-            refresh: ''
+            refresh: '0'
         }
     }
 
@@ -22,6 +22,7 @@ export default class AddWidgetModal extends Component {
     closeModal() {
         console.log(this.state.data);
         this.props.fnct(this.state.data);
+        this.props.refresh_rate(this.state.refresh);
         this.setState({
             visible: false
         });
@@ -52,7 +53,7 @@ export default class AddWidgetModal extends Component {
                                 </label>
                                 <input
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="data" type="data" placeholder="City" value={this.props.data}
+                                    id="data" type="text" placeholder="City" defaultValue={this.props.data}
                                     onChange={this.handleChange}/>
                             </div>
                             <div className="mb-4 px-8">
@@ -61,7 +62,7 @@ export default class AddWidgetModal extends Component {
                                 </label>
                                 <input
                                     className="shadow appearance-none border rounded w-full py-2 px-3 text-gray-700 leading-tight focus:outline-none focus:shadow-outline"
-                                    id="refresh-rate" type="text" placeholder="Time" value={this.state.refresh}
+                                    id="refresh" type="text" placeholder="Time" defaultValue={this.props.refresh_rate}
                                     onChange={this.handleChange}/>
                             </div>
                             <div className="mb-4 px-8 flex center">

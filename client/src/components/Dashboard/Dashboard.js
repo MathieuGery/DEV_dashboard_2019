@@ -1,7 +1,7 @@
 import React from "react";
 import API from "../../utils/API";
 import SideBar from "./SideBar";
-import TestCards from './Cards/TestCards';
+import TestCards from './Cards/MyCardsWidget';
 
 export class Dashboard extends React.Component {
     disconnect = () => {
