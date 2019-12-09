@@ -4,7 +4,7 @@ import Cookies from 'js-cookie'
 const headers = {
     "content-type": "application/json"
 };
-const burl = "http://localhost:5000";
+const burl = "https://dashboardepitechback2019.herokuapp.com";
 
 export default {
     login: function (email, password) {
